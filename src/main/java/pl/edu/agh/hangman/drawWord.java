@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -17,7 +18,7 @@ public class drawWord {
             while (odczyt.hasNextLine()) {
                 String data = odczyt.nextLine();
                 words.add(data);
-                System.out.println(data);
+                //System.out.println(data);
             }
             odczyt.close();
         } catch (FileNotFoundException | URISyntaxException e) {
@@ -30,7 +31,7 @@ public class drawWord {
         int x = s.size();
         Random generator = new Random();
         int y = generator.nextInt(x-1);
-        return s.get(y);
+        return s.get(y).toLowerCase(Locale.ROOT);
     }
 
 }

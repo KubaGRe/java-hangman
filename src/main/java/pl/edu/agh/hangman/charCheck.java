@@ -1,5 +1,7 @@
 package pl.edu.agh.hangman;
 
+import java.util.Arrays;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class charCheck {
@@ -14,8 +16,10 @@ public class charCheck {
             for(String w : word){
                 System.out.print(w);
             }
+            System.out.println("\n");
             System.out.print(hangman[i]);
-            String x = scan.nextLine();
+            System.out.println("\n");
+            String x = scan.nextLine().toLowerCase(Locale.ROOT);
             if (s.indexOf(x.charAt(0)) != -1) {
                 ChangeChars.change(s,word,x);
             } else{
@@ -25,6 +29,15 @@ public class charCheck {
              if(i == 6) {
                  System.out.println("You lost\n");
                  System.out.print(hangman[i]);
+                 break;
+             }
+             if(!Arrays.asList(word).contains("_")){
+                 System.out.println("Congratulation!");
+                 System.out.println("You won!");
+                 System.out.println("It was indeed");
+                 for(String w : word){
+                     System.out.print(w);
+                 }
                  break;
              }
         }

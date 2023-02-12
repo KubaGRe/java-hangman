@@ -11,13 +11,29 @@ import java.util.Scanner;
 public class drawWord {
 
     public static ArrayList<String> czytaj() throws FileNotFoundException {
+        int t = 0, l = 0;
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Do you want to pass word length? [y/n]");
+        if(scan.nextLine().equals("y")){
+            t = 1;
+            System.out.println("Pass length");
+            l = scan.nextInt();
+        }
+        else
+            t = 0;
         ArrayList<String> words = new ArrayList<>();
         try {
             File czytaj= new File(drawWord.class.getResource("/slowa.txt").toURI());
             Scanner odczyt = new Scanner(czytaj);
             while (odczyt.hasNextLine()) {
                 String data = odczyt.nextLine();
-                words.add(data);
+                if(t == 0){
+                    words.add(data);
+                }
+                if(t == 1){
+                    if(data.length()==l)
+                        words.add(data);
+                }
                 //System.out.println(data);
             }
             odczyt.close();

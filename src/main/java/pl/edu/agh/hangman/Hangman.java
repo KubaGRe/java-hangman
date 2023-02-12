@@ -58,7 +58,7 @@ public class Hangman {
 
     public static void main(String[] args) throws FileNotFoundException {
         String X = drawWord.losuj(drawWord.czytaj());
-        System.out.println(X);
+
         charCheck.checkWord(X,HANGMANPICS);
     }
 }

@@ -27,8 +27,10 @@ public class charCheck {
                 i++;
             }
              if(i == 6) {
-                 System.out.println("You lost\n");
                  System.out.print(hangman[i]);
+                 System.out.print("\n");
+                 System.out.println("You lost");
+                 System.out.println("The word was:\n" + s);
                  break;
              }
              if(!Arrays.asList(word).contains("_")){
